@@ -16,7 +16,7 @@
         <button id="btn-insert">Submit</button>
     <script>
         $('#btn-insert').on('click', function () {
-            $.post("http://proektpmu.apphb.com/api/Account/Login",
+            $.post("http://proektpmu.apphb.com/api/AccountApi/Login",
                 { Name: $('#jusername').val(), Password: $('#jpassword').val() },
                 function (data) { alert("Success!!"); });
         });
