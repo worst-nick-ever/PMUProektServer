@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KursovProektPMUModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="KursovProektPMUModelStoreContainer">
+          <EntitySet Name="Account" EntityType="KursovProektPMUModel.Store.Account" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Challenge" EntityType="KursovProektPMUModel.Store.Challenge" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Highscore" EntityType="KursovProektPMUModel.Store.Highscore" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sudoku" EntityType="KursovProektPMUModel.Store.Sudoku" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__Challenge__Chall__1A14E395" Association="KursovProektPMUModel.Store.FK__Challenge__Chall__1A14E395">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Challenge" EntitySet="Challenge" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Challenge__Chall__1B0907CE" Association="KursovProektPMUModel.Store.FK__Challenge__Chall__1B0907CE">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Challenge" EntitySet="Challenge" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Challenge__Sudok__1BFD2C07" Association="KursovProektPMUModel.Store.FK__Challenge__Sudok__1BFD2C07">
+            <End Role="Sudoku" EntitySet="Sudoku" />
+            <End Role="Challenge" EntitySet="Challenge" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Highscore__UserI__145C0A3F" Association="KursovProektPMUModel.Store.FK__Highscore__UserI__145C0A3F">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Highscore" EntitySet="Highscore" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Challenge">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ChallengerID" Type="int" />
+          <Property Name="ChallengedID" Type="int" />
+          <Property Name="SudokuID" Type="int" />
+          <Property Name="Accepted" Type="bit" />
+          <Property Name="Completed" Type="bit" />
+        </EntityType>
+        <EntityType Name="Highscore">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Difficulty" Type="nvarchar" Nullable="false" MaxLength="7" />
+          <Property Name="Score" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sudoku">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Difficulty" Type="nvarchar" Nullable="false" MaxLength="7" />
+          <Property Name="LRU" Type="int" />
+          <Property Name="Puzzle" Type="nvarchar" Nullable="false" MaxLength="81" />
+        </EntityType>
+        <Association Name="FK__Challenge__Chall__1A14E395">
+          <End Role="Account" Type="KursovProektPMUModel.Store.Account" Multiplicity="0..1" />
+          <End Role="Challenge" Type="KursovProektPMUModel.Store.Challenge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Challenge">
+              <PropertyRef Name="ChallengerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Challenge__Chall__1B0907CE">
+          <End Role="Account" Type="KursovProektPMUModel.Store.Account" Multiplicity="0..1" />
+          <End Role="Challenge" Type="KursovProektPMUModel.Store.Challenge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Challenge">
+              <PropertyRef Name="ChallengedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Challenge__Sudok__1BFD2C07">
+          <End Role="Sudoku" Type="KursovProektPMUModel.Store.Sudoku" Multiplicity="0..1" />
+          <End Role="Challenge" Type="KursovProektPMUModel.Store.Challenge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sudoku">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Challenge">
+              <PropertyRef Name="SudokuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Highscore__UserI__145C0A3F">
+          <End Role="Account" Type="KursovProektPMUModel.Store.Account" Multiplicity="0..1" />
+          <End Role="Highscore" Type="KursovProektPMUModel.Store.Highscore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Highscore">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KursovProektPMUModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="KursovProektPMUEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Account" EntityType="KursovProektPMUModel.Account" />
+          <EntitySet Name="Challenge" EntityType="KursovProektPMUModel.Challenge" />
+          <EntitySet Name="Highscore" EntityType="KursovProektPMUModel.Highscore" />
+          <EntitySet Name="Sudoku" EntityType="KursovProektPMUModel.Sudoku" />
+          <AssociationSet Name="FK__Challenge__Chall__1A14E395" Association="KursovProektPMUModel.FK__Challenge__Chall__1A14E395">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Challenge" EntitySet="Challenge" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Challenge__Chall__1B0907CE" Association="KursovProektPMUModel.FK__Challenge__Chall__1B0907CE">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Challenge" EntitySet="Challenge" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Highscore__UserI__145C0A3F" Association="KursovProektPMUModel.FK__Highscore__UserI__145C0A3F">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Highscore" EntitySet="Highscore" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Challenge__Sudok__1BFD2C07" Association="KursovProektPMUModel.FK__Challenge__Sudok__1BFD2C07">
+            <End Role="Sudoku" EntitySet="Sudoku" />
+            <End Role="Challenge" EntitySet="Challenge" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Challenge" Relationship="KursovProektPMUModel.FK__Challenge__Chall__1A14E395" FromRole="Account" ToRole="Challenge" />
+          <NavigationProperty Name="Challenge1" Relationship="KursovProektPMUModel.FK__Challenge__Chall__1B0907CE" FromRole="Account" ToRole="Challenge" />
+          <NavigationProperty Name="Highscore" Relationship="KursovProektPMUModel.FK__Highscore__UserI__145C0A3F" FromRole="Account" ToRole="Highscore" />
+        </EntityType>
+        <EntityType Name="Challenge">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ChallengerID" Type="Int32" />
+          <Property Name="ChallengedID" Type="Int32" />
+          <Property Name="SudokuID" Type="Int32" />
+          <Property Name="Accepted" Type="Boolean" />
+          <Property Name="Completed" Type="Boolean" />
+          <NavigationProperty Name="Account" Relationship="KursovProektPMUModel.FK__Challenge__Chall__1A14E395" FromRole="Challenge" ToRole="Account" />
+          <NavigationProperty Name="Account1" Relationship="KursovProektPMUModel.FK__Challenge__Chall__1B0907CE" FromRole="Challenge" ToRole="Account" />
+          <NavigationProperty Name="Sudoku" Relationship="KursovProektPMUModel.FK__Challenge__Sudok__1BFD2C07" FromRole="Challenge" ToRole="Sudoku" />
+        </EntityType>
+        <EntityType Name="Highscore">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Difficulty" Type="String" Nullable="false" MaxLength="7" Unicode="true" FixedLength="false" />
+          <Property Name="Score" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="KursovProektPMUModel.FK__Highscore__UserI__145C0A3F" FromRole="Highscore" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="Sudoku">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Difficulty" Type="String" Nullable="false" MaxLength="7" Unicode="true" FixedLength="false" />
+          <Property Name="LRU" Type="Int32" />
+          <Property Name="Puzzle" Type="String" Nullable="false" MaxLength="81" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Challenge" Relationship="KursovProektPMUModel.FK__Challenge__Sudok__1BFD2C07" FromRole="Sudoku" ToRole="Challenge" />
+        </EntityType>
+        <Association Name="FK__Challenge__Chall__1A14E395">
+          <End Role="Account" Type="KursovProektPMUModel.Account" Multiplicity="0..1" />
+          <End Role="Challenge" Type="KursovProektPMUModel.Challenge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Challenge">
+              <PropertyRef Name="ChallengerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Challenge__Chall__1B0907CE">
+          <End Role="Account" Type="KursovProektPMUModel.Account" Multiplicity="0..1" />
+          <End Role="Challenge" Type="KursovProektPMUModel.Challenge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Challenge">
+              <PropertyRef Name="ChallengedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Highscore__UserI__145C0A3F">
+          <End Role="Account" Type="KursovProektPMUModel.Account" Multiplicity="0..1" />
+          <End Role="Highscore" Type="KursovProektPMUModel.Highscore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Highscore">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Challenge__Sudok__1BFD2C07">
+          <End Role="Sudoku" Type="KursovProektPMUModel.Sudoku" Multiplicity="0..1" />
+          <End Role="Challenge" Type="KursovProektPMUModel.Challenge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sudoku">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Challenge">
+              <PropertyRef Name="SudokuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KursovProektPMUModelStoreContainer" CdmEntityContainer="KursovProektPMUEntities">
+          <EntitySetMapping Name="Account">
+            <EntityTypeMapping TypeName="KursovProektPMUModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Challenge">
+            <EntityTypeMapping TypeName="KursovProektPMUModel.Challenge">
+              <MappingFragment StoreEntitySet="Challenge">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ChallengerID" ColumnName="ChallengerID" />
+                <ScalarProperty Name="ChallengedID" ColumnName="ChallengedID" />
+                <ScalarProperty Name="SudokuID" ColumnName="SudokuID" />
+                <ScalarProperty Name="Accepted" ColumnName="Accepted" />
+                <ScalarProperty Name="Completed" ColumnName="Completed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Highscore">
+            <EntityTypeMapping TypeName="KursovProektPMUModel.Highscore">
+              <MappingFragment StoreEntitySet="Highscore">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sudoku">
+            <EntityTypeMapping TypeName="KursovProektPMUModel.Sudoku">
+              <MappingFragment StoreEntitySet="Sudoku">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
+                <ScalarProperty Name="LRU" ColumnName="LRU" />
+                <ScalarProperty Name="Puzzle" ColumnName="Puzzle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

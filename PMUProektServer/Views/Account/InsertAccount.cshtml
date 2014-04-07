@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "InsertAccount";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<form method="POST" action="InsertAcc" id="insert-form">
+    <div>
+        <label for="Name">Username : </label>
+        <input type="text" id="Name" />
+    </div>
+    <div>
+        <label for="Password">Password : </label>
+        <input type="password" id="Password" />
+    </div>
+    <input type="submit" id="btn-submit" form="insert-form" />
+</form>
+<div>
+    <div>
+        <label for="jusername">Username : </label>
+        <input type="text" id="jusername" />
+    </div>
+    <div>
+        <label for="jpassword">Password : </label>
+        <input type="text" id="jpassword" />
+        <button id="btn-insert">Submit</button>
+    </div>
+    <script>
+        $('#btn-insert').on('click', function () {
+            $.post("InsertAcc",
+                { Name: $('#jusername').val(), Password: $('#jpassword').val() },
+                function (data) { alert(data); });
+        });
+
+
+    </script>
+</div>
+
+<div>
+    <fieldset>
+        <legend>Login Form</legend>
+        <form method="post" action="login">
+            <div>
+                <label for="login-name">Name : </label>
+                <input name="Name" id="login-name" type="text" />
+            </div>
+            <div>
+                <label for="login-password">Passwod : </label>
+                <input type="password" name="Password" id="login-password" />
+            </div>
+            <input type="submit" value="Login" id="login-submit" />
+        </form>
+    </fieldset>
+</div>

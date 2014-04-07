@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2101cb9171bf4e37acf4348646740ed5" Name="Diagram1">
+        <EntityTypeShape EntityType="KursovProektPMUModel.Account" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KursovProektPMUModel.Challenge" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KursovProektPMUModel.Highscore" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KursovProektPMUModel.Sudoku" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="KursovProektPMUModel.FK__Challenge__Chall__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="KursovProektPMUModel.FK__Challenge__Chall__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="KursovProektPMUModel.FK__Highscore__UserI__145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="KursovProektPMUModel.FK__Challenge__Sudok__1BFD2C07" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
