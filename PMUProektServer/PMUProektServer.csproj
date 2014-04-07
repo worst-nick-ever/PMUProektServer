@@ -135,16 +135,31 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Account.cs">
-      <DependentUpon>SudokuDatabse.tt</DependentUpon>
+      <DependentUpon>SudokuApphrbr.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Challenge.cs">
-      <DependentUpon>SudokuDatabse.tt</DependentUpon>
+      <DependentUpon>SudokuApphrbr.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Highscore.cs">
-      <DependentUpon>SudokuDatabse.tt</DependentUpon>
+      <DependentUpon>SudokuApphrbr.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Sudoku.cs">
-      <DependentUpon>SudokuDatabse.tt</DependentUpon>
+      <DependentUpon>SudokuApphrbr.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SudokuApphrbr.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SudokuApphrbr.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SudokuApphrbr.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SudokuApphrbr.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SudokuApphrbr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SudokuApphrbr.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\SudokuDatabse.Context.cs">
       <AutoGen>True</AutoGen>
@@ -236,6 +251,23 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SudokuDatabse.edmx</DependentUpon>
       <LastGenOutput>SudokuDatabse.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="Models\SudokuApphrbr.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SudokuApphrbr.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\SudokuApphrbr.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SudokuApphrbr.edmx</DependentUpon>
+      <LastGenOutput>SudokuApphrbr.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\SudokuApphrbr.edmx.diagram">
+      <DependentUpon>SudokuApphrbr.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\SudokuApphrbr.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SudokuApphrbr.edmx</DependentUpon>
+      <LastGenOutput>SudokuApphrbr.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
