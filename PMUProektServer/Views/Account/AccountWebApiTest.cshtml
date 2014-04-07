@@ -37,7 +37,7 @@
     <script>
         $('#btn-register').on('click', function () {
             $.post("http://proektpmu.apphb.com/api/AccountApi/Register",
-                { Name: $('#jusername').val(), Password: $('#jpassword').val() },
+                { Name: $('#username').val(), Password: $('#password').val() },
                 function (data) { alert("Success!!"); });
         });
     </script>
