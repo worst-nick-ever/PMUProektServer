@@ -300,6 +300,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\InsertAccount.cshtml" />
     <Content Include="Views\Account\LoggedIn.cshtml" />
+    <Content Include="Views\Account\AccountWebApiTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

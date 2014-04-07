@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "AccountWebApiTest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<fieldset>
+    <legend>Login Form</legend>
+    <div>
+        <label for="jusername">Username : </label>
+        <input type="text" id="jusername" />
+    </div>
+    <div>
+        <label for="jpassword">Password : </label>
+        <input type="text" id="jpassword" />
+    </div>    
+        <button id="btn-insert">Submit</button>
+    <script>
+        $('#btn-insert').on('click', function () {
+            $.post("http://proektpmu.apphb.com/api/Account/Login",
+                { Name: $('#jusername').val(), Password: $('#jpassword').val() },
+                function (data) { alert("Success!!"); });
+        });
+    </script>
+</fieldset>
