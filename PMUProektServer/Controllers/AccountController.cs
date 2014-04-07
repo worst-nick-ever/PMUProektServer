@@ -50,5 +50,10 @@ namespace PMUProektServer.Controllers
                 return View("InsertAccount");
             }
         }
+
+        public ActionResult AccountWebApiTest()
+        {
+            return View("AccountWebApiTest");
+        }
     }
 }
