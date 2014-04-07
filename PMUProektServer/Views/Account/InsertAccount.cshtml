@@ -11,20 +11,23 @@
     </div>
     <div>
         <label for="Password">Password : </label>
-        <input type="password" id="Password" name="Password"/>
+        <input type="password" id="Password" name="Password" />
     </div>
     <input type="submit" id="btn-submit" form="insert-form" />
 </form>
 <div>
-    <div>
-        <label for="jusername">Username : </label>
-        <input type="text" id="jusername" />
-    </div>
-    <div>
-        <label for="jpassword">Password : </label>
-        <input type="text" id="jpassword" />
-        <button id="btn-insert">Submit</button>
-    </div>
+    <fieldset>
+        <legend>Regitser Form</legend>
+        <div>
+            <label for="jusername">Username : </label>
+            <input type="text" id="jusername" />
+        </div>
+        <div>
+            <label for="jpassword">Password : </label>
+            <input type="text" id="jpassword" />
+            <button id="btn-insert">Submit</button>
+        </div>
+    </fieldset>
     <script>
         $('#btn-insert').on('click', function () {
             $.post("InsertAcc",
