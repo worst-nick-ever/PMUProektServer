@@ -37,20 +37,20 @@ namespace PMUProektServer.Controllers
         }
 
         // api/account/register
-        //[HttpPost]
-        //[ActionName("Register")]
-        //public HttpResponseMessage Register(Account acc)
-        //{
-        //    db.Account.Add(acc);
-        //    int savedToDb = db.SaveChanges();
-        //    if (savedToDb > 0)
-        //    {
-        //        return Request.CreateResponse(HttpStatusCode.OK);
-        //    }
-        //    else
-        //    {
-        //        return Request.CreateResponse(HttpStatusCode.BadRequest);
-        //    }
-        //}
+        [HttpPost]
+        [ActionName("Register")]
+        public HttpResponseMessage Register(Account acc)
+        {
+            db.Account.Add(acc);
+            int savedToDb = db.SaveChanges();
+            if (savedToDb > 0)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+        }
     }
 }
