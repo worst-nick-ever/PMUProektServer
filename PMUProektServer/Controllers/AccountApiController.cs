@@ -36,6 +36,7 @@ namespace PMUProektServer.Controllers
             }
         }
 
+        // api/account/register
         [HttpPost]
         [ActionName("Register")]
         public HttpResponseMessage Register(Account acc)
