@@ -1,3 +1,7 @@
+metadata=res://*/Models.SudokuDatabse.csdl|res://*/Models.SudokuDatabse.ssdl|res://*/Models.SudokuDatabse.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=PETKO-PC;initial catalog=KursovProektPMU;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;
+
+*/
+
 CREATE TABLE Account(
 ID INT IDENTITY(1,1) PRIMARY KEY,
 Name nvarchar(20) not null unique,

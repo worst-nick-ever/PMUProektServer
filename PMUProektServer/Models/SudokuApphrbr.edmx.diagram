@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b32274a3d6eb4aab97e45a7205107046" Name="Diagram1">
+        <EntityTypeShape EntityType="SudokuAppHrbrModel.Account" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SudokuAppHrbrModel.Challenge" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SudokuAppHrbrModel.Highscore" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SudokuAppHrbrModel.Sudoku" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="SudokuAppHrbrModel.FK__Challenge__Chall__117F9D94" ManuallyRouted="false" />
+        <AssociationConnector Association="SudokuAppHrbrModel.FK__Challenge__Chall__1273C1CD" ManuallyRouted="false" />
+        <AssociationConnector Association="SudokuAppHrbrModel.FK__Highscore__UserI__07F6335A" ManuallyRouted="false" />
+        <AssociationConnector Association="SudokuAppHrbrModel.FK__Challenge__Sudok__1367E606" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
