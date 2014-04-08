@@ -41,3 +41,15 @@
         }
     </ol>
 </fieldset>
+<button id="btn-get-highscores">GetHighscores</button>
+<script>
+    $('#btn-get-highscores').on('click', function () {
+        $.ajax({
+            type: 'GET',
+            url: 'http://proektpmu.apphb.com/api/HighscoreApi/GetHighscores',
+            success: function (data) {
+                alert(JSON.stringify(data));
+            }
+        });
+    });
+</script>

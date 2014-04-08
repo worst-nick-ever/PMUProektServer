@@ -39,5 +39,21 @@ namespace PMUProektServer.Controllers
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
         }
+
+        [HttpGet]
+        [ActionName("GetHighscores")]
+        public HttpResponseMessage GetHighscores()
+        {
+            var highscores = db.Highscore.Join(db.Account, 
+                h => h.UserID, a => a.ID, 
+                (h, a) => new
+            {
+                    Username = a.Name,
+                    Difficulty = h.Difficulty,
+                    Score = h.Score
+            }).OrderBy(h => h.Score).ToList();
+
+            return Request.CreateResponse(HttpStatusCode.OK, highscores);
+        }
     }
 }
