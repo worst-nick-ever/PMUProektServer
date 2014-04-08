@@ -14,7 +14,7 @@ namespace PMUProektServer.Controllers
         //
         // GET: /Highscore/
 
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
             IEnumerable<Highscore> highscores = db.Highscore.ToList();
             List<HighscoreModel> model = new List<HighscoreModel>();
@@ -27,6 +27,11 @@ namespace PMUProektServer.Controllers
                 temp.Difficulty = score.Difficulty;
                 temp.Score = score.Score;
                 model.Add(temp);
+            }
+
+            if (id != null)
+            {
+                model = model.Where(h => h.Difficulty.Equals(id)).ToList();
             }
 
             return View("HighscoreEditor", model);
