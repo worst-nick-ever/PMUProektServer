@@ -1,0 +1,43 @@
+﻿@model IEnumerable<PMUProektServer.Models.HighscoreModel>
+@{
+    ViewBag.Title = "HighscoreEditor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>HighscoreEditor</h2>
+
+<fieldset>
+    <legend>Insert Highscore</legend>
+    <div>
+        <label>User : </label>
+        <input name="Username" id="username" />
+    </div>
+    <div>
+        <label>Difficulty : </label>
+        <input name="Difficulty" id="difficulty" />
+    </div>
+    <div>
+        <label>Score : </label>
+        <input name="Score" id="score" />
+    </div>
+    <button id="insert-score">Insert Highscore</button>
+    <script>
+        $('#insert-score').on('click', function () {
+            $.post("http://proektpmu.apphb.com/HighscoreApi/Insert",
+                {
+                    Username: $('#username').val(),
+                    Difficulty: $('#difficulty').val(),
+                    Score: $('#score').val()
+                }, function (data) { alert(data); });
+        });
+    </script>
+</fieldset>
+<fieldset>
+    <legend>Display highscores</legend>
+    <ol>
+        @foreach (var score in Model)
+        {
+            <li><strong>@score.Username</strong>&nbsp;@score.Difficulty&nbsp;@score.Score</li>
+        }
+    </ol>
+</fieldset>

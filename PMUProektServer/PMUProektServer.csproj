@@ -130,6 +130,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountApiController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HighscoreApiController.cs" />
+    <Compile Include="Controllers\HighscoreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -137,6 +139,7 @@
     <Compile Include="Models\Account.cs">
       <DependentUpon>SudokuApphrbr.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\HighscoreModel.cs" />
     <Compile Include="Models\Challenge.cs">
       <DependentUpon>SudokuApphrbr.tt</DependentUpon>
     </Compile>
@@ -301,6 +304,7 @@
     <Content Include="Views\Account\InsertAccount.cshtml" />
     <Content Include="Views\Account\LoggedIn.cshtml" />
     <Content Include="Views\Account\AccountWebApiTest.cshtml" />
+    <Content Include="Views\Highscore\HighscoreEditor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
