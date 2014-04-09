@@ -18,7 +18,7 @@
         <EntityTypeShape EntityType="KursovProektPMUModel.HARD" Width="1.5" PointX="5.8364517268894476" PointY="13.605534708875014" />
         <EntityTypeShape EntityType="KursovProektPMUModel.MEDIUM" Width="1.5" PointX="4.6733542777008159" PointY="6.9570986958952146" />
         <EntityTypeShape EntityType="KursovProektPMUModel.TOP_SCORES" Width="1.5" PointX="9.5338094874908261" PointY="13.838311127311695" />
-        <EntityTypeShape EntityType="KursovProektPMUModel.CHALLENGES1" Width="1.5" PointX="9.2214900465782215" PointY="14.213997474971226" />
+        <EntityTypeShape EntityType="KursovProektPMUModel.CHALLENGES" Width="1.5" PointX="5.052377356706363" PointY="14.516003496253864" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

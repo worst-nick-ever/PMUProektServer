@@ -139,36 +139,33 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Account.cs">
-      <DependentUpon>SudokuApphrbr.tt</DependentUpon>
+      <DependentUpon>SudokuDatabse.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ChallengeModel.cs" />
     <Compile Include="Models\CHALLENGES.cs">
-      <DependentUpon>SudokuApphrbr.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CHALLENGES1.cs">
       <DependentUpon>SudokuDatabse.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EASY.cs">
-      <DependentUpon>SudokuApphrbr.tt</DependentUpon>
+      <DependentUpon>SudokuDatabse.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EVIL.cs">
-      <DependentUpon>SudokuApphrbr.tt</DependentUpon>
+      <DependentUpon>SudokuDatabse.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HARD.cs">
-      <DependentUpon>SudokuApphrbr.tt</DependentUpon>
+      <DependentUpon>SudokuDatabse.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HighscoreModel.cs" />
     <Compile Include="Models\Challenge.cs">
-      <DependentUpon>SudokuApphrbr.tt</DependentUpon>
+      <DependentUpon>SudokuDatabse.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Highscore.cs">
-      <DependentUpon>SudokuApphrbr.tt</DependentUpon>
+      <DependentUpon>SudokuDatabse.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MEDIUM.cs">
-      <DependentUpon>SudokuApphrbr.tt</DependentUpon>
+      <DependentUpon>SudokuDatabse.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Sudoku.cs">
-      <DependentUpon>SudokuApphrbr.tt</DependentUpon>
+      <DependentUpon>SudokuDatabse.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SudokuApphrbr.Context.cs">
       <AutoGen>True</AutoGen>
@@ -201,7 +198,7 @@
       <DependentUpon>SudokuDatabse.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\TOP_SCORES.cs">
-      <DependentUpon>SudokuApphrbr.tt</DependentUpon>
+      <DependentUpon>SudokuDatabse.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

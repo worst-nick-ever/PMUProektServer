@@ -267,7 +267,7 @@
           <EntitySet Name="HARD" EntityType="KursovProektPMUModel.HARD" />
           <EntitySet Name="MEDIUM" EntityType="KursovProektPMUModel.MEDIUM" />
           <EntitySet Name="TOP_SCORES" EntityType="KursovProektPMUModel.TOP_SCORES" />
-          <EntitySet Name="CHALLENGES1Set" EntityType="KursovProektPMUModel.CHALLENGES1" />
+          <EntitySet Name="CHALLENGES" EntityType="KursovProektPMUModel.CHALLENGES" />
         </EntityContainer>
         <EntityType Name="Account">
           <Key>
@@ -412,7 +412,7 @@
           <Property Type="String" Name="Difficulty" Nullable="false" MaxLength="7" FixedLength="false" Unicode="true" />
           <Property Type="Int64" Name="Score" Nullable="false" />
         </EntityType>
-        <EntityType Name="CHALLENGES1">
+        <EntityType Name="CHALLENGES">
           <Key>
             <PropertyRef Name="ID" />
             <PropertyRef Name="Challenger" />
@@ -517,8 +517,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CHALLENGES1Set">
-            <EntityTypeMapping TypeName="KursovProektPMUModel.CHALLENGES1">
+          <EntitySetMapping Name="CHALLENGES">
+            <EntityTypeMapping TypeName="KursovProektPMUModel.CHALLENGES">
               <MappingFragment StoreEntitySet="CHALLENGES">
                 <ScalarProperty Name="Completed" ColumnName="Completed" />
                 <ScalarProperty Name="Sudoku" ColumnName="Sudoku" />
