@@ -11,9 +11,10 @@ namespace PMUProektServer.Controllers
         //
         // GET: /Challenge/
 
-        public ActionResult Index()
+        [ActionName("ChallengeEditor")]
+        public ActionResult ChallengeEditor()
         {
-            return View();
+            return View("ChallengeEditor");
         }
 
     }
