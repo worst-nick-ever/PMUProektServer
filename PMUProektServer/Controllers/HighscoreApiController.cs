@@ -74,7 +74,7 @@ namespace PMUProektServer.Controllers
             if (id != null)
             {
                 highscores = highscores.Where(a => a.Difficulty.Equals(id))
-                    .OrderBy(h => h.Score).ToList();
+                    .OrderBy(h => h.Score).Take(10).ToList();
             }
 
             return Request.CreateResponse(HttpStatusCode.OK, highscores);

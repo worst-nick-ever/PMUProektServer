@@ -32,7 +32,7 @@ namespace PMUProektServer.Controllers
             if (id != null)
             {
                 model = model.Where(h => h.Difficulty.Equals(id))
-                    .OrderBy(h => h.Score).Take(3).ToList();
+                    .OrderBy(h => h.Score).ToList();
             }
 
             return View("HighscoreEditor", model);
