@@ -56,9 +56,9 @@ namespace PMUProektServer.Controllers
         [ActionName("GetChallenges")]
         public HttpResponseMessage GetChallenges()
         {
-            var challenges = db.CHALLENGES1Set.ToList();
+            //var challenges = db.CHALLENGES1Set.ToList();
 
-            return Request.CreateResponse(HttpStatusCode.OK, challenges);
+            return Request.CreateResponse(HttpStatusCode.OK, 1);
         }
     }
 }
