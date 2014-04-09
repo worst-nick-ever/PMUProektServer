@@ -4,25 +4,60 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="KursovProektPMUModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="KursovProektPMUModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="KursovProektPMUModelStoreContainer">
           <EntitySet Name="Account" EntityType="KursovProektPMUModel.Store.Account" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Challenge" EntityType="KursovProektPMUModel.Store.Challenge" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Highscore" EntityType="KursovProektPMUModel.Store.Highscore" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Sudoku" EntityType="KursovProektPMUModel.Store.Sudoku" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK__Challenge__Chall__1A14E395" Association="KursovProektPMUModel.Store.FK__Challenge__Chall__1A14E395">
+          <EntitySet Name="EASY" EntityType="KursovProektPMUModel.Store.EASY" store:Type="Views" store:Schema="dbo" store:Name="EASY">
+            <DefiningQuery>SELECT 
+      [EASY].[Name] AS [Name], 
+      [EASY].[Difficulty] AS [Difficulty], 
+      [EASY].[Score] AS [Score]
+      FROM [dbo].[EASY] AS [EASY]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="EVIL" EntityType="KursovProektPMUModel.Store.EVIL" store:Type="Views" store:Schema="dbo" store:Name="EVIL">
+            <DefiningQuery>SELECT 
+      [EVIL].[Name] AS [Name], 
+      [EVIL].[Difficulty] AS [Difficulty], 
+      [EVIL].[Score] AS [Score]
+      FROM [dbo].[EVIL] AS [EVIL]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="HARD" EntityType="KursovProektPMUModel.Store.HARD" store:Type="Views" store:Schema="dbo" store:Name="HARD">
+            <DefiningQuery>SELECT 
+      [HARD].[Name] AS [Name], 
+      [HARD].[Difficulty] AS [Difficulty], 
+      [HARD].[Score] AS [Score]
+      FROM [dbo].[HARD] AS [HARD]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MEDIUM" EntityType="KursovProektPMUModel.Store.MEDIUM" store:Type="Views" store:Schema="dbo" store:Name="MEDIUM">
+            <DefiningQuery>SELECT 
+      [MEDIUM].[Name] AS [Name], 
+      [MEDIUM].[Difficulty] AS [Difficulty], 
+      [MEDIUM].[Score] AS [Score]
+      FROM [dbo].[MEDIUM] AS [MEDIUM]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TOP_SCORES" EntityType="KursovProektPMUModel.Store.TOP_SCORES" store:Type="Views" store:Schema="dbo" store:Name="TOP_SCORES">
+            <DefiningQuery>SELECT 
+      [TOP_SCORES].[Name] AS [Name], 
+      [TOP_SCORES].[Difficulty] AS [Difficulty], 
+      [TOP_SCORES].[Score] AS [Score]
+      FROM [dbo].[TOP_SCORES] AS [TOP_SCORES]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Challenge__Chall__117F9D94" Association="KursovProektPMUModel.Store.FK__Challenge__Chall__117F9D94">
             <End Role="Account" EntitySet="Account" />
             <End Role="Challenge" EntitySet="Challenge" />
           </AssociationSet>
-          <AssociationSet Name="FK__Challenge__Chall__1B0907CE" Association="KursovProektPMUModel.Store.FK__Challenge__Chall__1B0907CE">
+          <AssociationSet Name="FK__Challenge__Chall__1273C1CD" Association="KursovProektPMUModel.Store.FK__Challenge__Chall__1273C1CD">
             <End Role="Account" EntitySet="Account" />
             <End Role="Challenge" EntitySet="Challenge" />
           </AssociationSet>
-          <AssociationSet Name="FK__Challenge__Sudok__1BFD2C07" Association="KursovProektPMUModel.Store.FK__Challenge__Sudok__1BFD2C07">
+          <AssociationSet Name="FK__Challenge__Sudok__1367E606" Association="KursovProektPMUModel.Store.FK__Challenge__Sudok__1367E606">
             <End Role="Sudoku" EntitySet="Sudoku" />
             <End Role="Challenge" EntitySet="Challenge" />
           </AssociationSet>
-          <AssociationSet Name="FK__Highscore__UserI__145C0A3F" Association="KursovProektPMUModel.Store.FK__Highscore__UserI__145C0A3F">
+          <AssociationSet Name="FK__Highscore__UserI__07F6335A" Association="KursovProektPMUModel.Store.FK__Highscore__UserI__07F6335A">
             <End Role="Account" EntitySet="Account" />
             <End Role="Highscore" EntitySet="Highscore" />
           </AssociationSet>
@@ -64,7 +99,72 @@
           <Property Name="LRU" Type="int" />
           <Property Name="Puzzle" Type="nvarchar" Nullable="false" MaxLength="81" />
         </EntityType>
-        <Association Name="FK__Challenge__Chall__1A14E395">
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'db4c4d979560854472a010a30601235f4c.dbo.EASY' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="EASY">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Difficulty" />
+            <PropertyRef Name="Score" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Difficulty" Type="nvarchar" Nullable="false" MaxLength="7" />
+          <Property Name="Score" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'db4c4d979560854472a010a30601235f4c.dbo.EVIL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="EVIL">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Difficulty" />
+            <PropertyRef Name="Score" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Difficulty" Type="nvarchar" Nullable="false" MaxLength="7" />
+          <Property Name="Score" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'db4c4d979560854472a010a30601235f4c.dbo.HARD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="HARD">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Difficulty" />
+            <PropertyRef Name="Score" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Difficulty" Type="nvarchar" Nullable="false" MaxLength="7" />
+          <Property Name="Score" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'db4c4d979560854472a010a30601235f4c.dbo.MEDIUM' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="MEDIUM">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Difficulty" />
+            <PropertyRef Name="Score" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Difficulty" Type="nvarchar" Nullable="false" MaxLength="7" />
+          <Property Name="Score" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'db4c4d979560854472a010a30601235f4c.dbo.TOP_SCORES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="TOP_SCORES">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Difficulty" />
+            <PropertyRef Name="Score" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Difficulty" Type="nvarchar" Nullable="false" MaxLength="7" />
+          <Property Name="Score" Type="bigint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Challenge__Chall__117F9D94">
           <End Role="Account" Type="KursovProektPMUModel.Store.Account" Multiplicity="0..1" />
           <End Role="Challenge" Type="KursovProektPMUModel.Store.Challenge" Multiplicity="*" />
           <ReferentialConstraint>
@@ -76,7 +176,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Challenge__Chall__1B0907CE">
+        <Association Name="FK__Challenge__Chall__1273C1CD">
           <End Role="Account" Type="KursovProektPMUModel.Store.Account" Multiplicity="0..1" />
           <End Role="Challenge" Type="KursovProektPMUModel.Store.Challenge" Multiplicity="*" />
           <ReferentialConstraint>
@@ -88,7 +188,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Challenge__Sudok__1BFD2C07">
+        <Association Name="FK__Challenge__Sudok__1367E606">
           <End Role="Sudoku" Type="KursovProektPMUModel.Store.Sudoku" Multiplicity="0..1" />
           <End Role="Challenge" Type="KursovProektPMUModel.Store.Challenge" Multiplicity="*" />
           <ReferentialConstraint>
@@ -100,7 +200,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Highscore__UserI__145C0A3F">
+        <Association Name="FK__Highscore__UserI__07F6335A">
           <End Role="Account" Type="KursovProektPMUModel.Store.Account" Multiplicity="0..1" />
           <End Role="Highscore" Type="KursovProektPMUModel.Store.Highscore" Multiplicity="*" />
           <ReferentialConstraint>
@@ -112,8 +212,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KursovProektPMUModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -138,6 +237,11 @@
             <End Role="Sudoku" EntitySet="Sudoku" />
             <End Role="Challenge" EntitySet="Challenge" />
           </AssociationSet>
+          <EntitySet Name="EASY" EntityType="KursovProektPMUModel.EASY" />
+          <EntitySet Name="EVIL" EntityType="KursovProektPMUModel.EVIL" />
+          <EntitySet Name="HARD" EntityType="KursovProektPMUModel.HARD" />
+          <EntitySet Name="MEDIUM" EntityType="KursovProektPMUModel.MEDIUM" />
+          <EntitySet Name="TOP_SCORES" EntityType="KursovProektPMUModel.TOP_SCORES" />
         </EntityContainer>
         <EntityType Name="Account">
           <Key>
@@ -232,6 +336,56 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="EASY">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Difficulty" />
+            <PropertyRef Name="Score" />
+          </Key>
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Difficulty" Nullable="false" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Score" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EVIL">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Difficulty" />
+            <PropertyRef Name="Score" />
+          </Key>
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Difficulty" Nullable="false" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Score" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HARD">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Difficulty" />
+            <PropertyRef Name="Score" />
+          </Key>
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Difficulty" Nullable="false" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Score" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MEDIUM">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Difficulty" />
+            <PropertyRef Name="Score" />
+          </Key>
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Difficulty" Nullable="false" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Score" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TOP_SCORES">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Difficulty" />
+            <PropertyRef Name="Score" />
+          </Key>
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Difficulty" Nullable="false" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Score" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -276,6 +430,51 @@
                 <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
                 <ScalarProperty Name="LRU" ColumnName="LRU" />
                 <ScalarProperty Name="Puzzle" ColumnName="Puzzle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EASY">
+            <EntityTypeMapping TypeName="KursovProektPMUModel.EASY">
+              <MappingFragment StoreEntitySet="EASY">
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EVIL">
+            <EntityTypeMapping TypeName="KursovProektPMUModel.EVIL">
+              <MappingFragment StoreEntitySet="EVIL">
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HARD">
+            <EntityTypeMapping TypeName="KursovProektPMUModel.HARD">
+              <MappingFragment StoreEntitySet="HARD">
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MEDIUM">
+            <EntityTypeMapping TypeName="KursovProektPMUModel.MEDIUM">
+              <MappingFragment StoreEntitySet="MEDIUM">
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TOP_SCORES">
+            <EntityTypeMapping TypeName="KursovProektPMUModel.TOP_SCORES">
+              <MappingFragment StoreEntitySet="TOP_SCORES">
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

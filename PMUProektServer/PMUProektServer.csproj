@@ -139,11 +139,23 @@
     <Compile Include="Models\Account.cs">
       <DependentUpon>SudokuApphrbr.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EASY.cs">
+      <DependentUpon>SudokuApphrbr.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EVIL.cs">
+      <DependentUpon>SudokuApphrbr.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HARD.cs">
+      <DependentUpon>SudokuApphrbr.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\HighscoreModel.cs" />
     <Compile Include="Models\Challenge.cs">
       <DependentUpon>SudokuApphrbr.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Highscore.cs">
+      <DependentUpon>SudokuApphrbr.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MEDIUM.cs">
       <DependentUpon>SudokuApphrbr.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Sudoku.cs">
@@ -178,6 +190,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SudokuDatabse.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TOP_SCORES.cs">
+      <DependentUpon>SudokuApphrbr.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -4,12 +4,47 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SudokuAppHrbrModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SudokuAppHrbrModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="SudokuAppHrbrModelStoreContainer">
           <EntitySet Name="Account" EntityType="SudokuAppHrbrModel.Store.Account" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Challenge" EntityType="SudokuAppHrbrModel.Store.Challenge" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Highscore" EntityType="SudokuAppHrbrModel.Store.Highscore" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Sudoku" EntityType="SudokuAppHrbrModel.Store.Sudoku" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EASY" EntityType="SudokuAppHrbrModel.Store.EASY" store:Type="Views" store:Schema="dbo" store:Name="EASY">
+            <DefiningQuery>SELECT 
+      [EASY].[Name] AS [Name], 
+      [EASY].[Difficulty] AS [Difficulty], 
+      [EASY].[Score] AS [Score]
+      FROM [dbo].[EASY] AS [EASY]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="EVIL" EntityType="SudokuAppHrbrModel.Store.EVIL" store:Type="Views" store:Schema="dbo" store:Name="EVIL">
+            <DefiningQuery>SELECT 
+      [EVIL].[Name] AS [Name], 
+      [EVIL].[Difficulty] AS [Difficulty], 
+      [EVIL].[Score] AS [Score]
+      FROM [dbo].[EVIL] AS [EVIL]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="HARD" EntityType="SudokuAppHrbrModel.Store.HARD" store:Type="Views" store:Schema="dbo" store:Name="HARD">
+            <DefiningQuery>SELECT 
+      [HARD].[Name] AS [Name], 
+      [HARD].[Difficulty] AS [Difficulty], 
+      [HARD].[Score] AS [Score]
+      FROM [dbo].[HARD] AS [HARD]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MEDIUM" EntityType="SudokuAppHrbrModel.Store.MEDIUM" store:Type="Views" store:Schema="dbo" store:Name="MEDIUM">
+            <DefiningQuery>SELECT 
+      [MEDIUM].[Name] AS [Name], 
+      [MEDIUM].[Difficulty] AS [Difficulty], 
+      [MEDIUM].[Score] AS [Score]
+      FROM [dbo].[MEDIUM] AS [MEDIUM]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TOP_SCORES" EntityType="SudokuAppHrbrModel.Store.TOP_SCORES" store:Type="Views" store:Schema="dbo" store:Name="TOP_SCORES">
+            <DefiningQuery>SELECT 
+      [TOP_SCORES].[Name] AS [Name], 
+      [TOP_SCORES].[Difficulty] AS [Difficulty], 
+      [TOP_SCORES].[Score] AS [Score]
+      FROM [dbo].[TOP_SCORES] AS [TOP_SCORES]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__Challenge__Chall__117F9D94" Association="SudokuAppHrbrModel.Store.FK__Challenge__Chall__117F9D94">
             <End Role="Account" EntitySet="Account" />
             <End Role="Challenge" EntitySet="Challenge" />
@@ -64,6 +99,71 @@
           <Property Name="LRU" Type="int" />
           <Property Name="Puzzle" Type="nvarchar" Nullable="false" MaxLength="81" />
         </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'db4c4d979560854472a010a30601235f4c.dbo.EASY' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="EASY">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Difficulty" />
+            <PropertyRef Name="Score" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Difficulty" Type="nvarchar" Nullable="false" MaxLength="7" />
+          <Property Name="Score" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'db4c4d979560854472a010a30601235f4c.dbo.EVIL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="EVIL">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Difficulty" />
+            <PropertyRef Name="Score" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Difficulty" Type="nvarchar" Nullable="false" MaxLength="7" />
+          <Property Name="Score" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'db4c4d979560854472a010a30601235f4c.dbo.HARD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="HARD">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Difficulty" />
+            <PropertyRef Name="Score" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Difficulty" Type="nvarchar" Nullable="false" MaxLength="7" />
+          <Property Name="Score" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'db4c4d979560854472a010a30601235f4c.dbo.MEDIUM' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="MEDIUM">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Difficulty" />
+            <PropertyRef Name="Score" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Difficulty" Type="nvarchar" Nullable="false" MaxLength="7" />
+          <Property Name="Score" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'db4c4d979560854472a010a30601235f4c.dbo.TOP_SCORES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="TOP_SCORES">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Difficulty" />
+            <PropertyRef Name="Score" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Difficulty" Type="nvarchar" Nullable="false" MaxLength="7" />
+          <Property Name="Score" Type="bigint" Nullable="false" />
+        </EntityType>
         <Association Name="FK__Challenge__Chall__117F9D94">
           <End Role="Account" Type="SudokuAppHrbrModel.Store.Account" Multiplicity="0..1" />
           <End Role="Challenge" Type="SudokuAppHrbrModel.Store.Challenge" Multiplicity="*" />
@@ -112,8 +212,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SudokuAppHrbrModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -138,6 +237,11 @@
             <End Role="Sudoku" EntitySet="Sudoku" />
             <End Role="Challenge" EntitySet="Challenge" />
           </AssociationSet>
+          <EntitySet Name="EASY" EntityType="SudokuAppHrbrModel.EASY" />
+          <EntitySet Name="EVIL" EntityType="SudokuAppHrbrModel.EVIL" />
+          <EntitySet Name="HARD" EntityType="SudokuAppHrbrModel.HARD" />
+          <EntitySet Name="MEDIUM" EntityType="SudokuAppHrbrModel.MEDIUM" />
+          <EntitySet Name="TOP_SCORES" EntityType="SudokuAppHrbrModel.TOP_SCORES" />
         </EntityContainer>
         <EntityType Name="Account">
           <Key>
@@ -232,6 +336,56 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="EASY">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Difficulty" />
+            <PropertyRef Name="Score" />
+          </Key>
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Difficulty" Nullable="false" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Score" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EVIL">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Difficulty" />
+            <PropertyRef Name="Score" />
+          </Key>
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Difficulty" Nullable="false" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Score" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HARD">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Difficulty" />
+            <PropertyRef Name="Score" />
+          </Key>
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Difficulty" Nullable="false" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Score" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MEDIUM">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Difficulty" />
+            <PropertyRef Name="Score" />
+          </Key>
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Difficulty" Nullable="false" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Score" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TOP_SCORES">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Difficulty" />
+            <PropertyRef Name="Score" />
+          </Key>
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Difficulty" Nullable="false" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Score" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -276,6 +430,51 @@
                 <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
                 <ScalarProperty Name="LRU" ColumnName="LRU" />
                 <ScalarProperty Name="Puzzle" ColumnName="Puzzle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EASY">
+            <EntityTypeMapping TypeName="SudokuAppHrbrModel.EASY">
+              <MappingFragment StoreEntitySet="EASY">
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EVIL">
+            <EntityTypeMapping TypeName="SudokuAppHrbrModel.EVIL">
+              <MappingFragment StoreEntitySet="EVIL">
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HARD">
+            <EntityTypeMapping TypeName="SudokuAppHrbrModel.HARD">
+              <MappingFragment StoreEntitySet="HARD">
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MEDIUM">
+            <EntityTypeMapping TypeName="SudokuAppHrbrModel.MEDIUM">
+              <MappingFragment StoreEntitySet="MEDIUM">
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TOP_SCORES">
+            <EntityTypeMapping TypeName="SudokuAppHrbrModel.TOP_SCORES">
+              <MappingFragment StoreEntitySet="TOP_SCORES">
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

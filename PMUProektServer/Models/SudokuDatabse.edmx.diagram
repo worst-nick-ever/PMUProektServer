@@ -13,6 +13,11 @@
         <AssociationConnector Association="KursovProektPMUModel.FK__Challenge__Chall__1B0907CE" ManuallyRouted="false" />
         <AssociationConnector Association="KursovProektPMUModel.FK__Highscore__UserI__145C0A3F" ManuallyRouted="false" />
         <AssociationConnector Association="KursovProektPMUModel.FK__Challenge__Sudok__1BFD2C07" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="KursovProektPMUModel.EASY" Width="1.5" PointX="9.1745056180164717" PointY="4.0541532505555793" />
+        <EntityTypeShape EntityType="KursovProektPMUModel.EVIL" Width="1.5" PointX="9.810301924967348" PointY="10.098580529027888" />
+        <EntityTypeShape EntityType="KursovProektPMUModel.HARD" Width="1.5" PointX="5.8364517268894476" PointY="13.605534708875014" />
+        <EntityTypeShape EntityType="KursovProektPMUModel.MEDIUM" Width="1.5" PointX="4.6733542777008159" PointY="6.9570986958952146" />
+        <EntityTypeShape EntityType="KursovProektPMUModel.TOP_SCORES" Width="1.5" PointX="9.5338094874908261" PointY="13.838311127311695" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

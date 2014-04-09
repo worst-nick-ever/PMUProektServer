@@ -58,10 +58,18 @@ namespace PMUProektServer.Controllers
         }
 
         [HttpGet]
+        [ActionName("GetTopScores")]
+        public HttpResponseMessage GetTopScores()
+        {
+            var topScores = db.TOP_SCORES.OrderBy(ts => ts.Difficulty)
+                .OrderBy(ts => ts.Score).ToList();
+            return Request.CreateResponse(HttpStatusCode.OK, topScores);
+        }
+
+        [HttpGet]
         [ActionName("GetHighscores")]
         public HttpResponseMessage GetHighscores([FromUri]string id)
         {
-
             var highscores = db.Highscore.Join(db.Account,
                 h => h.UserID, a => a.ID,
                 (h, a) => new

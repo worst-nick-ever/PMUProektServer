@@ -29,5 +29,10 @@ namespace PMUProektServer.Models
         public DbSet<Challenge> Challenge { get; set; }
         public DbSet<Highscore> Highscore { get; set; }
         public DbSet<Sudoku> Sudoku { get; set; }
+        public DbSet<EASY> EASY { get; set; }
+        public DbSet<EVIL> EVIL { get; set; }
+        public DbSet<HARD> HARD { get; set; }
+        public DbSet<MEDIUM> MEDIUM { get; set; }
+        public DbSet<TOP_SCORES> TOP_SCORES { get; set; }
     }
 }

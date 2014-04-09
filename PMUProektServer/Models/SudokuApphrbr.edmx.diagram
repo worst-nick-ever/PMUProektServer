@@ -13,6 +13,11 @@
         <AssociationConnector Association="SudokuAppHrbrModel.FK__Challenge__Chall__1273C1CD" ManuallyRouted="false" />
         <AssociationConnector Association="SudokuAppHrbrModel.FK__Highscore__UserI__07F6335A" ManuallyRouted="false" />
         <AssociationConnector Association="SudokuAppHrbrModel.FK__Challenge__Sudok__1367E606" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SudokuAppHrbrModel.EASY" Width="1.5" PointX="3.2883536644691387" PointY="9.9980219202106912" />
+        <EntityTypeShape EntityType="SudokuAppHrbrModel.EVIL" Width="1.5" PointX="5.404837815745192" PointY="12.124074107093771" />
+        <EntityTypeShape EntityType="SudokuAppHrbrModel.HARD" Width="1.5" PointX="11.083763457408065" PointY="22.064055020950761" />
+        <EntityTypeShape EntityType="SudokuAppHrbrModel.MEDIUM" Width="1.5" PointX="0.083474177906044847" PointY="14.113175607339095" />
+        <EntityTypeShape EntityType="SudokuAppHrbrModel.TOP_SCORES" Width="1.5" PointX="5.3181276867716241" PointY="11.015638177756051" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
