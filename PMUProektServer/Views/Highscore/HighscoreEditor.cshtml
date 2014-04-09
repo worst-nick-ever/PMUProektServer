@@ -46,7 +46,7 @@
     $('#btn-get-highscores').on('click', function () {
         $.ajax({
             type: 'GET',
-            url: 'http://proektpmu.apphb.com/api/HighscoreApi/GetHighscores',
+            url: 'http://proektpmu.apphb.com/api/HighscoreApi/GetHighscores/EVIL',
             success: function (data) {
                 alert(JSON.stringify(data));
             }
