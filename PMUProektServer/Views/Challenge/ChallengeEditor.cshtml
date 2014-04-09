@@ -20,11 +20,12 @@
         <input id="sudoku" name="Sudoku" />
     </div>
     <button id="insert-challenge">Insert Chalenge</button>
+    <button id="get-challenges">Get All Challenges</button>
     <script>
         $('#insert-challenge').on('click', function () {
             $.post("http://proektpmu.apphb.com/api/ChallengeApi/InsertChallenge",
                 {
-                    Challenger : $('#challenger').val(),
+                    Challenger: $('#challenger').val(),
                     Challenged: $('#challenged').val(),
                     Sudoku: $('#sudoku').val()
                 },
@@ -32,16 +33,15 @@
                     alert(data);
                 });
         });
-    </script>
-    <button id="get-challenges">Get All Challenges</button>
-    <script>
+
         $('#get-challenges').on('click', function () {
             $.ajax({
-                url : 'http://proektpmu.apphb.com/api/ChallengeApi/GetChallenges',
-                type : 'GET',
-                success : function(data) {
+                type: 'GET',
+                url: 'http://proektpmu.apphb.com/api/ChallengeApi/GetChallenges',
+                success: function (data) {
                     alert(JSON.stringify(data));
                 }
             });
+        });
     </script>
 </fieldset>
