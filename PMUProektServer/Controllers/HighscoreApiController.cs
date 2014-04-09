@@ -61,7 +61,13 @@ namespace PMUProektServer.Controllers
         [ActionName("GetTopScores")]
         public HttpResponseMessage GetTopScores()
         {
-            var topScores = db.TOP_SCORES.OrderBy(ts => ts.Difficulty)
+            var topScores = db.TOP_SCORES
+                .Select(x => new
+                {
+                    Username = x.Name,
+                    Difficulty = x.Difficulty,
+                    Score = x.Score
+                }).OrderBy(ts => ts.Difficulty)
                 .OrderBy(ts => ts.Score).ToList();
             return Request.CreateResponse(HttpStatusCode.OK, topScores);
         }
