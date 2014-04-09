@@ -42,7 +42,7 @@ namespace PMUProektServer.Controllers
 
         [HttpGet]
         [ActionName("GetHighscores")]
-        public HttpResponseMessage GetHighscores([FromUri]string id)
+        public HttpResponseMessage GetHighscores(/*[FromUri]string id*/)
         {
 
             var highscores = db.Highscore.Join(db.Account,
@@ -54,10 +54,10 @@ namespace PMUProektServer.Controllers
                 Score = h.Score
             }).OrderBy(h => h.Score).ToList();
 
-            if (id != null)
-            {
-                highscores = highscores.Where(a => a.Difficulty.Equals(id)).ToList();
-            }
+            //if (id != null)
+            //{
+            //    highscores = highscores.Where(a => a.Difficulty.Equals(id)).ToList();
+            //}
 
             return Request.CreateResponse(HttpStatusCode.OK, highscores);
         }
