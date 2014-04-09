@@ -142,6 +142,12 @@
       <DependentUpon>SudokuApphrbr.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ChallengeModel.cs" />
+    <Compile Include="Models\CHALLENGES.cs">
+      <DependentUpon>SudokuApphrbr.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CHALLENGES1.cs">
+      <DependentUpon>SudokuDatabse.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\EASY.cs">
       <DependentUpon>SudokuApphrbr.tt</DependentUpon>
     </Compile>

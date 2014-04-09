@@ -50,5 +50,15 @@ namespace PMUProektServer.Controllers
                 return Request.CreateResponse(HttpStatusCode.BadRequest, -1);
             }
         }
+
+        // proektpmu.apphb.com/api/ChallengeApi/GetChallenges
+        [HttpGet]
+        [ActionName("GetChallenges")]
+        public HttpResponseMessage GetChallenges()
+        {
+            var challenges = db.CHALLENGES1Set.ToList();
+
+            return Request.CreateResponse(HttpStatusCode.OK, challenges);
+        }
     }
 }

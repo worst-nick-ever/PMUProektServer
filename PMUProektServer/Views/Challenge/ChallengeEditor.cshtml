@@ -9,15 +9,15 @@
     <legend>Insert Challenge</legend>
     <div>
         <label for="challenger">Challenger : </label>
-        <input id="challenger" name="Challenger"/>
+        <input id="challenger" name="Challenger" />
     </div>
     <div>
-        <label for="challenged"> Challenged : </label>
-        <input id="challenged" name="Challenged"/>
+        <label for="challenged">Challenged : </label>
+        <input id="challenged" name="Challenged" />
     </div>
     <div>
         <label for="sudoku">Sudoku : </label>
-        <input id="sudoku" name="Sudoku"/>
+        <input id="sudoku" name="Sudoku" />
     </div>
     <button id="insert-challenge">Insert Chalenge</button>
     <script>
@@ -29,8 +29,19 @@
                     Sudoku: $('#sudoku').val()
                 },
                 function (data) {
-                alert(data);
-            });
+                    alert(data);
+                });
         });
+    </script>
+    <button id="get-challenges">Get All Challenges</button>
+    <script>
+        $('#get-challenges').on('click', function () {
+            $.ajax({
+                url : 'http://proektpmu.apphb.com/api/ChallengeApi/GetChallenges',
+                type : 'GET',
+                success : function(data) {
+                    alert(JSON.stringify(data));
+                }
+            });
     </script>
 </fieldset>

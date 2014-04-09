@@ -34,5 +34,6 @@ namespace PMUProektServer.Models
         public DbSet<HARD> HARD { get; set; }
         public DbSet<MEDIUM> MEDIUM { get; set; }
         public DbSet<TOP_SCORES> TOP_SCORES { get; set; }
+        public DbSet<CHALLENGES> CHALLENGES { get; set; }
     }
 }

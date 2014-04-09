@@ -10,6 +10,15 @@
           <EntitySet Name="Challenge" EntityType="KursovProektPMUModel.Store.Challenge" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Highscore" EntityType="KursovProektPMUModel.Store.Highscore" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Sudoku" EntityType="KursovProektPMUModel.Store.Sudoku" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CHALLENGES" EntityType="KursovProektPMUModel.Store.CHALLENGES" store:Type="Views" store:Schema="dbo" store:Name="CHALLENGES">
+            <DefiningQuery>SELECT 
+      [CHALLENGES].[ID] AS [ID], 
+      [CHALLENGES].[Challenger] AS [Challenger], 
+      [CHALLENGES].[Challenged] AS [Challenged], 
+      [CHALLENGES].[Sudoku] AS [Sudoku], 
+      [CHALLENGES].[Completed] AS [Completed]
+      FROM [dbo].[CHALLENGES] AS [CHALLENGES]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="EASY" EntityType="KursovProektPMUModel.Store.EASY" store:Type="Views" store:Schema="dbo" store:Name="EASY">
             <DefiningQuery>SELECT 
       [EASY].[Name] AS [Name], 
@@ -98,6 +107,22 @@
           <Property Name="Difficulty" Type="nvarchar" Nullable="false" MaxLength="7" />
           <Property Name="LRU" Type="int" />
           <Property Name="Puzzle" Type="nvarchar" Nullable="false" MaxLength="81" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'db4c4d979560854472a010a30601235f4c.dbo.CHALLENGES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="CHALLENGES">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Challenger" />
+            <PropertyRef Name="Challenged" />
+            <PropertyRef Name="Sudoku" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Challenger" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Challenged" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Sudoku" Type="nvarchar" Nullable="false" MaxLength="81" />
+          <Property Name="Completed" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'db4c4d979560854472a010a30601235f4c.dbo.EASY' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -242,6 +267,7 @@
           <EntitySet Name="HARD" EntityType="KursovProektPMUModel.HARD" />
           <EntitySet Name="MEDIUM" EntityType="KursovProektPMUModel.MEDIUM" />
           <EntitySet Name="TOP_SCORES" EntityType="KursovProektPMUModel.TOP_SCORES" />
+          <EntitySet Name="CHALLENGES1Set" EntityType="KursovProektPMUModel.CHALLENGES1" />
         </EntityContainer>
         <EntityType Name="Account">
           <Key>
@@ -386,6 +412,19 @@
           <Property Type="String" Name="Difficulty" Nullable="false" MaxLength="7" FixedLength="false" Unicode="true" />
           <Property Type="Int64" Name="Score" Nullable="false" />
         </EntityType>
+        <EntityType Name="CHALLENGES1">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Challenger" />
+            <PropertyRef Name="Challenged" />
+            <PropertyRef Name="Sudoku" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Challenger" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Challenged" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Sudoku" Nullable="false" MaxLength="81" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Completed" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -475,6 +514,17 @@
                 <ScalarProperty Name="Score" ColumnName="Score" />
                 <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CHALLENGES1Set">
+            <EntityTypeMapping TypeName="KursovProektPMUModel.CHALLENGES1">
+              <MappingFragment StoreEntitySet="CHALLENGES">
+                <ScalarProperty Name="Completed" ColumnName="Completed" />
+                <ScalarProperty Name="Sudoku" ColumnName="Sudoku" />
+                <ScalarProperty Name="Challenged" ColumnName="Challenged" />
+                <ScalarProperty Name="Challenger" ColumnName="Challenger" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

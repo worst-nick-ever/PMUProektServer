@@ -18,6 +18,7 @@
         <EntityTypeShape EntityType="SudokuAppHrbrModel.HARD" Width="1.5" PointX="11.083763457408065" PointY="22.064055020950761" />
         <EntityTypeShape EntityType="SudokuAppHrbrModel.MEDIUM" Width="1.5" PointX="0.083474177906044847" PointY="14.113175607339095" />
         <EntityTypeShape EntityType="SudokuAppHrbrModel.TOP_SCORES" Width="1.5" PointX="5.3181276867716241" PointY="11.015638177756051" />
+        <EntityTypeShape EntityType="SudokuAppHrbrModel.CHALLENGES" Width="1.5" PointX="3.586539903463116" PointY="0.6464334729343808" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
