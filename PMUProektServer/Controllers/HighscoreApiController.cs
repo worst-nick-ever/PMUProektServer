@@ -73,7 +73,8 @@ namespace PMUProektServer.Controllers
 
             if (id != null)
             {
-                highscores = highscores.Where(a => a.Difficulty.Equals(id)).ToList();
+                highscores = highscores.Where(a => a.Difficulty.Equals(id))
+                    .OrderBy(h => h.Score).ToList();
             }
 
             return Request.CreateResponse(HttpStatusCode.OK, highscores);
