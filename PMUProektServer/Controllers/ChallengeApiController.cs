@@ -36,6 +36,8 @@ namespace PMUProektServer.Controllers
             ch.ChallengerID = accounts.Where(a => a.Name == challenge.Challenger).First().ID;
             ch.ChallengedID = accounts.Where(a => a.Name == challenge.Challenged).First().ID;
             ch.SudokuID = sudokuID;
+            ch.Accepted = false;
+            ch.Completed = false;
 
             db.Challenge.Add(ch);
 
