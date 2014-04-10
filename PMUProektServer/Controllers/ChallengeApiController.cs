@@ -64,7 +64,7 @@ namespace PMUProektServer.Controllers
         // proektpmu.apphb.com/api/ChallengeApi/GetChallenges/ID
         [HttpGet]
         [ActionName("GetChallenges")]
-        public HttpResponseMessage GetChallenges(string ID)
+        public HttpResponseMessage GetChallenges([FromUri]string ID)
         {
             var challenges = db.CHALLENGES.Where(c => c.Challenged.Equals(ID)).ToList();
 
