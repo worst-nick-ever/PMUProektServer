@@ -21,27 +21,46 @@
     </div>
     <button id="insert-challenge">Insert Chalenge</button>
     <button id="get-challenges">Get All Challenges</button>
-    <script>
-        $('#insert-challenge').on('click', function () {
-            $.post("http://proektpmu.apphb.com/api/ChallengeApi/InsertChallenge",
-                {
-                    Challenger: $('#challenger').val(),
-                    Challenged: $('#challenged').val(),
-                    Sudoku: $('#sudoku').val()
-                },
-                function (data) {
-                    alert(data);
-                });
-        });
-
-        $('#get-challenges').on('click', function () {
-            $.ajax({
-                type: 'GET',
-                url: 'http://proektpmu.apphb.com/api/ChallengeApi/GetChallenges',
-                success: function (data) {
-                    alert(JSON.stringify(data));
-                }
-            });
-        });
-    </script>
 </fieldset>
+<fieldset>
+    <legend>Get Challenges by Name</legend>
+    <div>
+        <label for="challenged-id">Challenged : </label>
+        <input id="challenged-id" name="challenged-id" />
+    </div>
+    <button id="btn-challenges-by-id">Get Challenge by Name</button>
+</fieldset>
+<script>
+    $('#insert-challenge').on('click', function () {
+        $.post("http://proektpmu.apphb.com/api/ChallengeApi/InsertChallenge",
+            {
+                Challenger: $('#challenger').val(),
+                Challenged: $('#challenged').val(),
+                Sudoku: $('#sudoku').val()
+            },
+            function (data) {
+                alert(data);
+            });
+    });
+
+    $('#get-challenges').on('click', function () {
+        $.ajax({
+            type: 'GET',
+            url: 'http://proektpmu.apphb.com/api/ChallengeApi/GetChallenges',
+            success: function (data) {
+                alert(JSON.stringify(data));
+            }
+        });
+    });
+
+    $('#btn-challenges-by-id').on('click', function () {
+        $.ajax({
+            type: 'GET',
+            url: 'http://proektpmu.apphb.com/api/ChallengeApi/GetChallenges/'
+                + $('#challenged-id').val(),
+            success: function (data) {
+                alert(JSON.stringify(data));
+            }
+        });
+    });
+</script>
