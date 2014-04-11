@@ -72,7 +72,7 @@
     $('#btn-complete-challenge').on('click', function () {
         $.ajax({
             type: 'POST',
-            url: 'proektpmu.apphb.com/api/ChallengeApi/CompleteChallenge/'
+            url: 'http://proektpmu.apphb.com/api/ChallengeApi/CompleteChallenge/'
                 + $('#completed-id').val(),
             success: function () {
                 alert('challenge updated!');
