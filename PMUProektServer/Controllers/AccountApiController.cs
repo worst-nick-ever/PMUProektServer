@@ -41,7 +41,15 @@ namespace PMUProektServer.Controllers
         [ActionName("Register")]
         public HttpResponseMessage Register(Account acc)
         {
+            bool isTaken = db.Account.Where(a => a.Name == acc.Name).Count() > 0;
+
+            if (isTaken)
+            {
+                return Request.CreateResponse(HttpStatusCode.Conflict);
+            }
+
             db.Account.Add(acc);
+
             int savedToDb = db.SaveChanges();
             if (savedToDb > 0)
             {
