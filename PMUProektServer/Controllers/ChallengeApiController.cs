@@ -51,6 +51,30 @@ namespace PMUProektServer.Controllers
             }
         }
 
+        // proektpmu.apphb.com/api/ChallengeApi/CompleteChallenge/ID
+        [HttpPost]
+        [ActionName("CompleteChallenge")]
+        public HttpResponseMessage CompleteChallenge([FromUri]int ID)
+        {
+            Challenge target = null;
+            var challenge = db.Challenge.Where(c => c.ID == ID).ToList();
+            if (challenge.Count() > 0)
+            {
+                target = challenge.First();
+            }
+
+            target.Completed = true;
+
+            if (db.SaveChanges() > 0)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+        }
+
         // proektpmu.apphb.com/api/ChallengeApi/GetChallenges
         [HttpGet]
         [ActionName("GetChallenges")]
