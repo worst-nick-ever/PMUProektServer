@@ -90,7 +90,8 @@ namespace PMUProektServer.Controllers
         [ActionName("GetChallenges")]
         public HttpResponseMessage GetChallenges([FromUri]string ID)
         {
-            var challenges = db.CHALLENGES.Where(c => c.Challenged.Equals(ID)).ToList();
+            var challenges = db.CHALLENGES.Where(c => c.Challenged.Equals(ID)
+                && c.Completed == false).ToList();
 
             return Request.CreateResponse(HttpStatusCode.OK, challenges);
         }
