@@ -17,6 +17,11 @@ namespace PMUProektServer.Controllers
         [ActionName("InsertChallenge")]
         public HttpResponseMessage InsertChallenge(ChallengeModel challenge)
         {
+            if (!db.Account.Any(a => a.Name == challenge.Challenged))
+            {
+                return Request.CreateResponse(HttpStatusCode.ExpectationFailed);
+            }
+
             var accounts = db.Account.Where(a => a.Name == challenge.Challenger
                 || a.Name == challenge.Challenged).ToList();
 
