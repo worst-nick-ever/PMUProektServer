@@ -135,6 +135,7 @@
     <Compile Include="Controllers\HighscoreApiController.cs" />
     <Compile Include="Controllers\HighscoreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SudokuApiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
