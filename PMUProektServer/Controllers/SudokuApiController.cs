@@ -15,9 +15,9 @@ namespace PMUProektServer.Controllers
         // proektpmu.apphb.com/api/SudokuApi/GetSudoku/difficulty
         [HttpGet]
         [ActionName("GetSudoku")]
-        public HttpResponseMessage GetSudoku([FromUri]string difficulty)
+        public HttpResponseMessage GetSudoku([FromUri]string ID)
         {
-            var sudokus = db.Sudoku.Where(s => s.Difficulty.Equals(difficulty)).ToList();
+            var sudokus = db.Sudoku.Where(s => s.Difficulty.Equals(ID)).ToList();
             Sudoku result = null;
 
             while (result == null)
