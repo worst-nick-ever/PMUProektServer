@@ -1,7 +1,7 @@
 metadata=res://*/Models.SudokuDatabse.csdl|res://*/Models.SudokuDatabse.ssdl|res://*/Models.SudokuDatabse.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=PETKO-PC;initial catalog=KursovProektPMU;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;
 
 */
-
+/*sql server*/
 CREATE TABLE Account(
 ID INT IDENTITY(1,1) PRIMARY KEY,
 Name nvarchar(20) not null unique,
@@ -26,6 +26,26 @@ ChallengedID int foreign key references Account(ID),
 SudokuID int foreign key references Sudoku(ID),
 Accepted bit default 0,
 Completed bit default 0);
+
+
+/*sqlite*/
+CREATE TABLE Account(
+ID INT auto_increment unique PRIMARY KEY,
+Name nvarchar(20) not null unique,
+Password nvarchar(20) not null);
+
+Create table Highscore(
+ID int key auto_increment unique primary,
+UserID int,
+Difficulty nvarchar(7) not null,
+Score bigint not null,
+foreign key (UserID) references Account(ID));
+
+Create table Sudoku(
+ID int auto_increment unique primary key,
+Difficulty nvarchar(7) not null,
+LRU int default 0,
+Puzzle nvarchar(82) not null);
 
 Insert into Account values ('Firelord', '12345'),
  ('Near', '54321'),
