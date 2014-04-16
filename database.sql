@@ -47,10 +47,9 @@ Difficulty nvarchar(7) not null,
 LRU int default 0,
 Puzzle nvarchar(82) not null);
 
-Insert into Account values ('Firelord', '12345'),
- ('Near', '54321'),
- ('Ivan', '11111'),
- ('Gosho', '22222');
+Insert into Accounts values (1, 'Firelord', '12345'),
+ (2, 'Near', '54321'),
+(3, 'Anonymous', '12345');
  
  INSERT INTO SUDOKU VALUES ('EASY', 0, 'i0bhefd00000000b0h0fh0000ce00f0h000dceg000ahbd000b0c00fd0000ge0g0c00000000eagdf0c'),
  ('EASY', 0, '0a000b00fg00c0i000f0dah0g00d0e0ic000i0a0e0d0h000dg0e0i00g0cdh0e000i0h00ah00e000d0'),

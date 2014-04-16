@@ -32,7 +32,7 @@ namespace PMUProektServer.Controllers
             }
             else
             {
-                return Request.CreateResponse(HttpStatusCode.BadRequest);
+                return Request.CreateResponse(HttpStatusCode.ExpectationFailed);
             }
         }
 
