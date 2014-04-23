@@ -25,9 +25,12 @@ namespace PMUProektServer.Controllers
             var accounts = db.Account.Where(a => a.Name == challenge.Challenger
                 || a.Name == challenge.Challenged).ToList();
 
-            if (accounts.Count() != 2)
+            if (!challenge.Challenger.Equals(challenge.Challenged))
             {
-                return Request.CreateResponse(HttpStatusCode.BadRequest, -2);
+                if (accounts.Count() != 2)
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, -2);
+                }
             }
 
             Sudoku s = new Sudoku();
